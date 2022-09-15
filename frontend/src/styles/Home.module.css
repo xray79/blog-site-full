@@ -1,0 +1,65 @@
+/* set main to relative */
+.mainPage {
+  position: relative;
+}
+
+/* wave main dark */
+.wave svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 180px;
+}
+.wave .shapeFill {
+  fill: #202529;
+}
+
+/* wave cards top */
+.wave .waveFillLight {
+  fill: #f8f9fa;
+}
+
+/* wave cards bottom */
+.waveCardsBottom svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 140px;
+  transform: rotateY(180deg);
+}
+.waveCardsBottom .waveFillLightBottom {
+  fill: #f8f9fa;
+}
+
+/* cards */
+.card {
+  background-position: center;
+  background-size: cover;
+}
+
+.card1 {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.251),
+      rgba(0, 0, 0, 0.256)
+    ),
+    url("../../public/card-1.jpg");
+}
+
+.card2 {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.251),
+      rgba(0, 0, 0, 0.256)
+    ),
+    url("../../public/card-2.jpg");
+}
+
+.card3 {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.251),
+      rgba(0, 0, 0, 0.256)
+    ),
+    url("../../public/card-3.jpg");
+}

@@ -12,21 +12,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const asyncHandler = require("express-async-handler");
 const Post = require("../models/postsModel");
 const User = require("../models/usersModel");
-// @desc    get all posts
+// @desc    Get all posts
 // @route   GET api/posts
 // @access  private
 const getPosts = asyncHandler((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const post = yield Post.find();
     res.status(200).json(post);
 }));
-// @desc    get user's posts
+// @desc    Get user's posts
 // @route   GET api/posts/getMy
 // @access  private
 const getMyPosts = asyncHandler((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const post = yield Post.find({ user: req.user.id });
     res.status(200).json(post);
 }));
-// @desc    create new post
+// @desc    Create new post
 // @route   POST api/posts
 // @access  private
 const postPosts = asyncHandler((req, res) => __awaiter(void 0, void 0, void 0, function* () {

@@ -9,7 +9,6 @@ const Navbar = () => {
   const onLogout = () => {
     dispatch(logout());
     dispatch(reset());
-    // Router.push("/");
   };
 
   return (
@@ -26,6 +25,10 @@ const Navbar = () => {
               </Nav.Item>
               {user ? (
                 <>
+                  <Nav.Item className="me-3">
+                    <Nav.Link href="/myposts">My Posts</Nav.Link>
+                  </Nav.Item>
+
                   <Nav.Item className="me-3">
                     <Button href="/posts" variant="primary">
                       Create +

@@ -3,15 +3,15 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import { useAppSelector, useAppDispatch } from "../app/hooks";
 import PostForm from "../components/PostForm";
-import { getPosts, reset } from "../features/posts/postsSlice";
+import { getMyPosts, reset } from "../features/posts/postsSlice";
 import PostItem from "../components/PostItem";
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router";
+import EditModal from "../components/EditModal";
 
-const Posts = () => {
-  // const Router = useRouter();
+const MyPosts = () => {
   const { user } = useAppSelector((state) => state.auth);
-  const { posts, isLoading, isError, isSuccess, message } = useAppSelector(
+  const { myPosts, isLoading, isError, message } = useAppSelector(
     (state) => state.posts
   );
   const dispatch = useAppDispatch();
@@ -26,7 +26,7 @@ const Posts = () => {
       return;
     }
 
-    dispatch(getPosts());
+    dispatch(getMyPosts());
 
     return () => {
       dispatch(reset());
@@ -38,12 +38,9 @@ const Posts = () => {
       <Navbar />
 
       <Container className="">
-        <h1 className="display-6 text-primary mt-4">Blog posts</h1>
-        <h3 className="display-7 text-primary mt-4 mb-3">
-          Welcome <span className="text-danger">{user && user.name}</span>
-        </h3>
-        <h3 className="display-7 text-primary mb-4">
-          Enter your new post here
+        <h1 className="display-6 mt-4 text-success">{user?.name}'s posts</h1>
+        <h3 className="display-7 text-success mb-4">
+          Your posts are here, create a new one below
         </h3>
 
         <PostForm />
@@ -54,14 +51,15 @@ const Posts = () => {
           <Spinner animation="border" />
         ) : (
           <div>
-            {posts.map((post, i) => (
+            {myPosts.map((post, i) => (
               <PostItem key={i} post={post} user={user} />
             ))}
           </div>
         )}
       </Container>
+
       <Footer />
     </div>
   );
 };
-export default Posts;
+export default MyPosts;

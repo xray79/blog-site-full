@@ -9,7 +9,7 @@ import { Request, Response } from "express";
 // type for req.user
 type RequestUser = Request & { user: any };
 
-// @desc    get all posts
+// @desc    Get all posts
 // @route   GET api/posts
 // @access  private
 const getPosts = asyncHandler(async (req: Request, res: Response) => {
@@ -17,7 +17,7 @@ const getPosts = asyncHandler(async (req: Request, res: Response) => {
   res.status(200).json(post);
 });
 
-// @desc    get user's posts
+// @desc    Get user's posts
 // @route   GET api/posts/getMy
 // @access  private
 const getMyPosts = asyncHandler(async (req: RequestUser, res: Response) => {
@@ -25,7 +25,7 @@ const getMyPosts = asyncHandler(async (req: RequestUser, res: Response) => {
   res.status(200).json(post);
 });
 
-// @desc    create new post
+// @desc    Create new post
 // @route   POST api/posts
 // @access  private
 const postPosts = asyncHandler(async (req: RequestUser, res: Response) => {
